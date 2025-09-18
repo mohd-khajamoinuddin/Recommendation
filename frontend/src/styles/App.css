@@ -1,0 +1,258 @@
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: rgb(79, 238, 238);
+}
+
+/* ----------- LARGE SCREEN ----------- */
+@media (min-width: 1000px) {
+  .app-content {
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    gap: 40px;
+    min-height: 90vh;
+    height: 100vh;
+  }
+
+  .user-section {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    min-width: 250px;
+    max-width: 350px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    align-self: flex-start;
+    border: none;
+  }
+
+  .main-right {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100vh;
+    gap: 32px;
+  }
+
+  .catalog-section {
+    flex: 1 1 0;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    min-height: 0;
+    height: 68vh;
+    max-height: 78vh;
+    overflow-y: auto;
+    margin-bottom: 0;
+  }
+
+  .recommendations-section {
+    flex: 0 0 auto;
+    background-color: #eaf6ff;
+    border: 2px solid #4a90e2;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 32px;
+    min-height: 60vh;
+    max-width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .recommendations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .preferences-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checkbox-column label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  .history-column .history-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .button-column {
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+/* ----------- SMALL SCREEN ----------- */
+@media (max-width: 999px) {
+  .app-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 80vh;
+  }
+  .user-section,
+  .catalog-section,
+  .recommendations-section {
+    width: 100%;
+    max-width: 100vw;
+    min-width: 0;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    height: initial;
+    margin-bottom: 0;
+  }
+  
+  .user-section {
+    order: 1;
+    border: 2px solid blue;
+    min-height: 150px;
+    max-height: 180px;
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .recommendations-section { order: 2; }
+  .catalog-section { order: 3; min-height: 300px; overflow-y: auto; }
+  .recommendations-section {
+    background-color: #eaf6ff;
+    border: 2px solid #4a90e2;
+    overflow-y: auto;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .recommendations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+/* Catalog grid and recommendations grid */
+.catalog-grid,
+.recommendations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.catalog-grid {
+  overflow-y: auto;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
+
+/* Card styles */
+.product-card,
+.recommendation-card {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  width: 250px;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+.product-card.viewed {
+  border: 2px solid #4a90e2;
+}
+.product-card:hover,
+.recommendation-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.product-rating {
+  color: #f39c12;
+  font-weight: bold;
+}
+.product-description {
+  font-size: 0.95em;
+  margin-bottom: 5px;
+}
+.recommendation-explanation {
+  background: #eaf6ff;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 0.95em;
+}
+.recommendation-card {
+  border: 1px solid #3772ff;
+  background-color: #f8fbff;
+}
+
+/* Preferences form (global styles for large screens only) */
+.preferences-container label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.preferences-container select,
+.preferences-container input {
+  display: block;
+  margin-bottom: 8px;
+}
+.preferences-container fieldset {
+  border: none;
+  margin-bottom: 12px;
+}
+.history-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.get-recommendations-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.get-recommendations-btn:hover {
+  background-color: #357ae8;
+}
+.get-recommendations-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
