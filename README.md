@@ -77,7 +77,7 @@ frontend/
 
 #### Backend Setup
 1. Navigate to the `backend` directory
-2. Create a virtual environment: conda create -n ait python=3.10.18 -y
+2. Create a virtual environment: conda create -n venvname python=3.10.18 -y
    or you can create a virtual environment by using : `python -m venv venvname` but here you have to use the python 3.10.18 is must another version may cause issue
 3. Activate the virtual environment:
    - through Anaconda : `conda activate venvname`
